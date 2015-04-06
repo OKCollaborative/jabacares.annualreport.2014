@@ -1,0 +1,196 @@
+html.skrollr.skrollr-desktop
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
+    title skrollr - parallax scrolling for the masses
+    //- link( href='examples/fixed-positioning.css' rel='stylesheet' type='text/css')
+    link( href='base.css' rel='stylesheet' type='text/css')
+    link( href='main.css' rel='stylesheet' type='text/css')
+
+  body(
+    style='height: 12505px;'
+    )
+
+    #progress.skrollable.skrollable-between(
+      data-0='width:0%'
+      data-end='width:100%'
+      style='width: 99.63333%'
+      )
+
+    #title-bar.skrollable.skrollable-after Annual Report 2014
+
+    #successes.skrollable.skrollable-after(
+      style='top: -100%; display: none;'
+      data-1000='opacity:0;top:100%'
+      data-1200='opacity:1;top:0%;'
+      data-4800='display:block;'
+      data-5000='top:-100%;'
+      ) Helping people manage the challenges of aging
+
+    #issue-food.skrollable.skrollable-after.issue(
+      style='top: -100%;display:none'
+      data-1300='top:100%;'
+      data-1500='top:0%;'
+      data-3000='display:block;opacity:1'
+      data-3200='display:none;opacity:0'
+      )
+      a(href='http://www.jabacares.org/support-resources/home-delivered-meals?go=' target='_blank') Food insecurity
+
+    #issue-food-data.issue-data.skrollable.skrollable-after(
+      style='display:none;opacity:0'
+      data-1400='opacity:0'
+      data-1500='display:inline-block;opacity:1'
+      data-1800='display:none;opacity:0'
+      )
+      img(src='images/cutlery6.png' style='float:left;padding:0 1em 0 0;')
+      | The Blue Ridge Food Bank tells us that in Planning District Ten,&nbsp;
+      strong 7.1% of people 65+&nbsp;
+      | are food insecure, which has an effect on every aspect of anyone’s life.
+
+    #issue-food-intro.issue-intro.skrollable.skrollable-after(
+      style='top: 100%;width:100%;height:100%'
+      data-1750='top:100%;'
+      data-2600='top:0%;'
+      data-3200='top:-100%;display:none;'
+      )
+      | Here's what JABA did to help:
+
+    #issue-food-action.skrollable.skrollable-after.issue-action(
+      style='top:100%;display:none;'
+      data-1800='top:100%;display:block'
+      data-2400='top:0%;'
+      data-3000='top:0%'
+      data-3200='top:-100%;display:none;'
+      )
+      img(src='images/dinner.jpg' style='width:100%')
+
+
+
+    #issue-medical.skrollable.skrollable-after.issue(
+      style='top: -100%;display:none'
+      data-3200='top:100%;'
+      data-3400='top:0%;'
+      data-4400='display:block;opacity:1'
+      data-4600='display:none;opacity:0'
+      )
+      a(href='http://www.jabacares.org/support-resources/care-transitions?go=' target='_blank') Medical care management
+
+    #issue-medical-data.issue-data.skrollable.skrollable-after(
+      style='display:none;opacity:0'
+      data-3200='opacity:0'
+      data-3400='display:inline-block;opacity:1'
+      data-3700='display:none;opacity:0'
+      )
+      img(src='images/nurse1.png' style='float:left;padding:0 1em 0 0;')
+      | According to the Center for Health Information and Analysis (CHIA), one in five Medicare patients discharged from a hospital are readmitted within 30 days. Three-quarters of these readmissions are considered preventable.
+
+    //- #issue-medical-intro.issue-intro.skrollable.skrollable-after(
+    //-   style='top: 100%;width:100%;height:100%'
+    //-   data-3650='top:100%;'
+    //-   data-='top:0%;'
+    //-   data-3200='top:-100%;display:none;'
+    //-   )
+    //-   | Here's what JABA did to help:
+
+    #issue-medical-action.skrollable.skrollable-after.issue-action(
+      style='top:100%;display:none;'
+      data-3700='top:100%;display:inline-block'
+      data-4300='top:0%;'
+      data-4900='top:0%'
+      data-5100='top:-100%;display:none;'
+      )
+      img(src='images/sitting-with-senior.jpg' style='width:80%;')
+      .issue-action-description
+        | 731 people in Planning District Ten were able to maintain a lifestyle that enabled them to focus on other key areas of their life other than where the next meal is coming from because of they received a daily hot, nutritious meal from JABA.
+
+
+
+    //- #issue-isolation.skrollable.skrollable-after.issue(
+    //-   style='top: -100%;display:none'
+    //-   data-1700='top:100%;'
+    //-   data-2000='top:0%;'
+    //-   data-3000='display:block;opacity:1'
+    //-   data-3200='display:none;opacity:0'
+    //-   )
+    //-   a(href='http://www.jabacares.org/support-resources/adult-care-centers?go=' target='_blank') Isolation from their community
+
+    //- #issue-information.skrollable.skrollable-after.issue(
+    //-   style='top: -100%;display:none'
+    //-   data-1900='top:100%;'
+    //-   data-2100='top:0%;'
+    //-   data-3000='display:block;opacity:1'
+    //-   data-3200='display:none;opacity:0'
+    //-   )
+    //-   a(href='http://www.jabacares.org/options-counseling?go=' target='_blank') Resource guidance
+
+    //- #issue-caregiver.skrollable.skrollable-after.issue(
+    //-   style='top: -100%;display:none'
+    //-   data-2100='top:100%;'
+    //-   data-2300='top:0%;'
+    //-   data-3000='display:block;opacity:1'
+    //-   data-3200='display:none;opacity:0'
+    //-   )
+    //-   a(href='http://www.jabacares.org/caregiver/support-groups' target='_blank') Caregiver burnout
+
+    //- #issue-financial.skrollable.skrollable-after.issue(
+    //-   style='top: -100%;display:none'
+    //-   data-2300='top:100%;'
+    //-   data-2500='top:0%;'
+    //-   data-3000='display:block;opacity:1'
+    //-   data-3200='display:none;opacity:0'
+    //-   )
+    //-   a(href='http://www.jabacares.org/financial-wellness-insurance-counseling?go=' target='_blank') Financial wellness
+
+    //- #issue-aging.skrollable.skrollable-after.issue(
+    //-   style='top: -100%;display:none'
+    //-   data-2500='top:100%;'
+    //-   data-2700='top:0%;'
+    //-   data-3000='display:block;opacity:1'
+    //-   data-3200='display:none;opacity:0'
+    //-   )
+    //-   a(href='http://www.jabacares.org/support-resources/in-home-care?go=' target='_blank') Aging in place
+
+    #tree.skrollable.skrollable-after(
+      data-0='background-position: 50% 50%;'
+      data-300='background-position: 50% 50%;'
+      data-1000='background-position: -10% 50%;'
+      )
+
+    //- #face1.faces.skrollable.skrollable-after(
+    //-   style='top: -100%;display:none'
+    //-   data-500='top:100%;'
+    //-   data-1000='top:0%;'
+    //-   data-2000='display:block;'
+    //-   data-2200='top:-100%'
+    //-   )
+    //- #face2.faces.skrollable.skrollable-after(
+    //-   style='top: -100%;display:none'
+    //-   data-1500='top:100%;'
+    //-   data-2000='top:0%;'
+    //-   data-3000='display:block;opacity:1'
+    //-   top:-100%;opacity:0'
+    //-   )
+    //- #face3.faces.skrollable.skrollable-after(
+    //-   style='top: -100%;display:none'
+    //-   data-2500='top:100%;'
+    //-   data-3000='top:0%;'
+    //-   data-4000='display:block;'
+    //-   data-4200='top:-100%'
+    //-   )
+    //- #face4.faces.skrollable.skrollable-after(
+    //-   style='top: -100%;display:none'
+    //-   data-3500='top:100%;'
+    //-   data-4000='top:0%;'
+    //-   data-5000='display:block;'
+    //-   data-5200='top:-100%'
+    //-   )
+    #credits
+      | Icons made by &nbsp;
+      a(href='http://www.flaticon.com/authors/freepik' title='Freepik') Freepik &nbsp;
+      | from &nbsp;
+      a(href='http://www.flaticon.com' title='Flaticon') www.flaticon.com &nbsp;
+      | is licensed by &nbsp;
+      a(href='http://creativecommons.org/licenses/by/3.0/' title='Creative Commons BY 3.0') CC BY 3.0 &nbsp;
+
+    script(src='jabacares.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.29/skrollr.min.js')

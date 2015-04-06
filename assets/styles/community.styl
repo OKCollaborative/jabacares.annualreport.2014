@@ -1,0 +1,157 @@
+@require 'helpers'
+
+#contributions
+#needs
+  float left
+  font 200 1.0em/1.0 font-sans
+  width 50%
+  min-height 600px
+  h2
+    font 100 1.5em/1.7 font-header
+    text-align center
+    margin 1em auto
+    letter-spacing 1.5px
+  .container
+    margin auto
+    padding 3em 5em
+    max-width 700px
+    .block
+      width 100%
+      min-height 7em
+
+#contributions
+  background-color #295882
+  color dark-high-contrast
+#needs
+  background-color #edeae6
+  color #295882
+  h2
+    color #079f00
+
+//contributions
+.medicare
+.caregiver-support
+.meals
+.advocacy
+.security
+.home
+  div[class^='icon-']
+    font-size 4em
+    color dark-high-contrast
+    margin .25em
+  .circle
+    border-radius(50%)
+    width 6em
+    height 6em
+    background-color #ffffff
+    border 1px white solid
+    &:hover
+      border 1px black solid
+
+//needs
+.navigating
+.social-isolation
+.food-insecurity
+.caregivers
+.healthcare-reform
+.institution
+  div[class^='icon-']
+    font-size 4em
+    color dark-high-contrast
+    margin .25em
+  .circle
+    border-radius(50%)
+    width 6em
+    height 6em
+    display inline-block
+    border 1px white solid
+    &:hover
+      border 1px black solid
+
+.navigating .circle
+  background-color #000000
+.social-isolation .circle
+  background-color #67b244
+.food-insecurity .circle
+  background-color #bb2d17
+.caregivers .circle
+  background-color #685ba3
+.healthcare-reform .circle
+  background-color #eb9000
+.institution .circle
+  background-color #368a8d
+
+.medicare div[class^='icon-']
+  color #000000
+.advocacy div[class^='icon-']
+  color #67b244
+.meals div[class^='icon-']
+  color #bb2d17
+.caregiver-support div[class^='icon-']
+  color #685ba3
+.security div[class^='icon-']
+  color #eb9000
+.home div[class^='icon-']
+  color #368a8d
+
+.description
+  width 100%
+  height 6em
+  display table-cell
+  vertical-align middle
+  line-height 1.6em
+  font-size 1.1em
+  overflow-y scroll
+
+
+//---- Left Icons
+.caregiver-support
+.advocacy
+.home
+.navigating
+.food-insecurity
+.healthcare-reform
+  .block
+    padding-right 3em
+  .circle
+    float left
+  .description
+    padding-left 1.5em
+
+//---- Right Icons
+.medicare
+.meals
+.security
+.social-isolation
+.caregivers
+.institution
+  .block
+    padding-left 3em
+  .circle
+    float right
+  .description
+    padding-right 1.5em
+
+.block
+  margin 2em 0
+  &:hover
+    background-color blue
+
+
+
+.big-number
+  -webkit-transition font-size .25s
+  -moz-transition    font-size .25s
+  -o-transition      font-size .25s
+  transition         font-size .25s
+
+  color yellow
+  display inline
+  font-size 1.8em
+  font-weight 300
+  font-family font-sans
+  padding 0 .25em
+
+  &:hover
+    font-size 1.8em
+

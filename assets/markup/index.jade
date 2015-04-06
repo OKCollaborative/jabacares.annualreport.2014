@@ -1,74 +1,24 @@
-html.skrollr.skrollr-desktop
+html
   head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1')
-    title skrollr - parallax scrolling for the masses
-    //- link( href='examples/fixed-positioning.css' rel='stylesheet' type='text/css')
-    link( href='base.css' rel='stylesheet' type='text/css')
+    title JABA Annual Report 2014
     link( href='main.css' rel='stylesheet' type='text/css')
-
+    link( rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Carme")
   body(
-    style='height: 12505px;'
     )
+    .header
+      include ./includes/title
+    .content
+      //- include ./includes/services
+      include ./includes/needs
+      include ./includes/contributions
+      include ./includes/financials
+      //- include ./includes/donors
+    .footer
+      include ./includes/credits
 
-    #progress.skrollable.skrollable-between(
-      data-0='width:0%;background:hsl(200, 100%, 50%);'
-      data-end='width:100%;background:hsl(200, 100%, 50%);'
-      style='width: 99.6333333333333%; background: rgb(0, 183, 255);'
-      )
 
-    #title-bar.skrollable.skrollable-after Annual Report 2014
-
-    #success.skrollable.skrollable-after(
-      style='top: -100%; display: none;'
-      data-1000='opacity:0;top:100%'
-      data-1200='opacity:1;top:0%;'
-      data-4800='display:block;'
-      data-5000='top:-100%;'
-      ) Helping people manage the challenges of aging
-
-    #food.skrollable.skrollable-after.issues(
-      style='top: -100%;display:none'
-      data-1500='top:100%;'
-      data-1800='top:0%;'
-      data-2200='display:block;'
-      data-3800='top:-100%;display:none'
-      ) Food insecurity
-
-    #tree.skrollable.skrollable-after(
-      data-0='background-position: 50% 50%;'
-      data-300='background-position: 50% 50%;'
-      data-1000='background-position: -10% 50%;'
-      )
-
-    #face1.faces.skrollable.skrollable-after(
-      data-500='background-position: 80% -100%;'
-      data-1000='background-position: 80% 50%;'
-      )
-    #face2.faces.skrollable.skrollable-after(
-      data-1500='background-position: 80% -100%;'
-      data-2000='background-position: 80% 50%;'
-      )
-    #face3.faces.skrollable.skrollable-after(
-      data-2500='background-position: 80% 80%;'
-      data-3000='background-position: 80% 80%;'
-      )
-    #face4.faces.skrollable.skrollable-after(
-      data-3500='background-position: 80% 60%;'
-      data-4000='background-position: 80% 80%;'
-      )
-
-    #health.skrollable.rollable-after.issues(
-      data-0='opacity:1'
-      )
-
-    #properties.skrollable.skrollable-after.issues(
-      style='top: -100%; display: none;'
-      data-1700='top:100%;'
-      data-2200='top:0%;'
-      data-3000='display:block;'
-      data-3700='top:-100%;display:none;'
-      ) Medical care management
-
+    script(src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.6.0/lodash.min.js')
     script(src='jabacares.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.29/skrollr.min.js')

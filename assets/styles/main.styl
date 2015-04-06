@@ -1,0 +1,108 @@
+@require 'helpers'
+@import 'Glyphter.css'
+@import 'base'
+@import 'community'
+@import 'financials'
+@import 'services'
+
+
+.header
+.footer
+.content
+  margin 0
+  padding 0
+  position relative
+
+// .content
+
+#title
+  color #295882
+  padding 1em
+  background-color #a9bccd
+  .name
+    float right
+    font 400 2.0em/2.0 font-sans
+
+#progress
+  height 2%
+  background #444
+  bottom 0
+  z-index 101
+
+#properties
+  width 100%
+  height 100%
+  padding-top 10%
+  text-align center
+  -webkit-box-sizing  border-box
+  -moz-box-sizing  border-box
+  box-sizing  border-box
+
+#credits
+  display none
+  position absolute
+  top 90%
+  right 2em
+  color muted
+
+#donors
+  margin 0
+  padding 1em
+  background dark
+  color dark-contrast
+
+  h2
+    font 500 1.2em/1.6 font-sans
+    line-height 1.4
+    margin 1em 0 0.25em 0
+    text-align center
+
+
+  // ol.levels
+  //   display block
+  // li.level
+  //   width 45%
+  //   display inline-block
+
+  ol.donors
+    li
+      font 200 .9em/1.5 font-sans
+      line-height 1.4em
+      margin-left 1em
+      cursor normal
+
+      &:hover
+        color dark-high-contrast
+        cursor pointer
+        font-size 1.0em
+
+#services
+  border-radius(1em)
+  width 25%
+  display inline-block
+  border 1px solid white
+  position absolute
+  left 0
+  right 0
+  top 50%
+  font 400 1.1em/1.5 font-sans
+  background-color #b5be33
+  color #fff
+  text-align center
+  margin 1em auto
+
+  h2
+    font 500 2.0em/1.7 font-serif
+    border-bottom 1px dashed #ffffff
+    padding .5em 1em .1em
+    margin 0 1em
+  ol, ul
+    margin 1.5em 0 1em
+  li
+    &:hover
+      color dark-high-contrast
+      cursor pointer
+      font-size 1.0em
+
+
+

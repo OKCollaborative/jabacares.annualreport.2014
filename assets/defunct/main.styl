@@ -1,0 +1,153 @@
+muted = #aaaaaa
+#progress
+    height 2%
+    background #444
+    bottom 0
+    z-index 101
+
+#scrollbar
+    position fixed
+    right 2px
+    height 50px
+    width 6px
+    background #666
+    background rgba(0, 0, 0, 0.6)
+    border 1px solid rgba(255, 255, 255, 0.6)
+    z-index 300
+    border-radius 3px
+
+.skrollr-desktop #scrollbar
+    display none
+
+#properties
+    width 100%
+    height 100%
+    padding-top 10%
+    text-align center
+    -webkit-box-sizing  border-box
+    -moz-box-sizing  border-box
+    box-sizing  border-box
+
+#easing_wrapper
+    width 100%
+    height 100%
+
+#easing
+    top 10%
+    width 50%
+    z-index 100
+
+.drop
+    background #09f
+    font-weight bold
+    padding 1em
+
+/* ========================================= */
+#tree
+    background  transparent url('images/big-tree.png') no-repeat fixed 50% 60%
+    height  100%
+    width  100%
+    // max-height  744px
+    // max-width  652px
+    background-size  contain
+    z-index 1
+    position fixed
+
+#successes
+    font-size 2.3em
+    display none
+    margin 1em
+    right 10%
+
+
+issue-top = 4.5em
+issue-spacing = 2em
+
+.issue
+    margin  .5em 0 .5em 13em
+    font-size 1.7em
+    right 20%
+
+#issue-food
+    margin-top issue-top + issue-spacing * 0
+#issue-medical
+    margin-top issue-top + issue-spacing * 1
+#issue-isolation
+    margin-top issue-top + issue-spacing * 2
+#issue-information
+    margin-top issue-top + issue-spacing * 3
+#issue-caregiver
+    margin-top issue-top + issue-spacing * 4
+#issue-financial
+    margin-top issue-top + issue-spacing * 5
+#issue-aging
+    margin-top issue-top + issue-spacing * 6
+
+.issue-data
+    position fixed
+    display inline-block
+    font-size 1.5em
+    line-height 1.4em
+    bottom 0%
+    right 10%
+    margin-bottom 5%
+    width 45%
+    //#issue-food-data
+
+#issue-food-action
+    position fixed
+    width 100%
+    height 100%
+    z-index 1000
+
+.issue-action-description
+    position fixed
+    padding 1em
+    display inline-block
+    width 20%
+    margin-left 80%
+    height 100%
+    background-color black
+    font-size 1.6em
+    color #eee
+    right 0
+    z-index 999
+
+#title-bar
+    z-index 100
+    width 100%
+    margin-top 2em
+    background #000
+    color  #eee
+    position absolute
+    display block
+    font-size 4em
+    padding  .25em .6em
+
+.faces
+    background-size auto
+    width 100%
+    height 100%
+    opacity .25
+    left 80%
+
+#face1
+    background  transparent url('images/face1.png') no-repeat fixed 0 0
+#face2
+    background  transparent url('images/face2.png') no-repeat fixed 0 0
+#face3
+    background  transparent url('images/face3.png') no-repeat fixed 0 0
+#face4
+    background  transparent url('images/face4.png') no-repeat fixed 0 0
+#face5
+    background  transparent url('images/face5.png') no-repeat fixed 0 0
+#face6
+    background  transparent url('images/face6.png') no-repeat fixed 0 0
+#face7
+    background  transparent url('images/face7.png') no-repeat fixed 0 0
+#credits
+    display none
+    position absolute
+    top 90%
+    right 2em
+    color muted

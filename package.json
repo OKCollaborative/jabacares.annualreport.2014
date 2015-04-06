@@ -9,9 +9,10 @@
     "postinstall": "echo there it goes!",
     "clean": "rimraf dist/*",
     "prebuild": "npm run clean -s && npm run lint",
-    "build": "npm run build:scripts -s && npm run build:styles -s && npm run build:markup -s && npm run build:images -s",
-    "build:scripts": "browserify --full-path=false -d assets/scripts/index.js > dist/jabacares.min.js",
-    "build:styles": "stylus assets/styles/*.stylus -m -o dist",
+    "build": "npm run build:scripts -s && npm run build:styles -s && npm run build:fonts -s && npm run build:markup -s && npm run build:images -s",
+    "build:scripts": "browserify --full-path=false -d assets/scripts/*.js > dist/jabacares.min.js",
+    "build:fonts": "cp assets/fonts/* dist/",
+    "build:styles": "stylus assets/styles/main.styl --include-css -m -o dist",
     "build:markup": "jade assets/markup/index.jade -P -o dist",
     "build:images": "imagemin assets/images/* -o 7 dist/images",
     "build:scriptsDEFUNCT": "browserify -d assets/scripts/index.js -p [minifyify --compressPath . --map index.js.map --output dist/index.js.map] | hashmark -n dist/index.js -s -l 8 -m assets.json 'dist/{name}{hash}{ext}'",
@@ -25,10 +26,10 @@
     "watch:styles": "watch 'npm run build:styles' assets/styles",
     "watch:images": "watch 'npm run build:images' assets/images",
     "debug": "node-debug ./bin/www.js –no-debug-brk",
-    "start": "browser-sync start --server dist",
+    "start": "npm run build && browser-sync start --server dist",
     "test": "mocha --require mocha --reporter spec ./test/*.js",
     "pretest": "npm run lint",
-    "server-watch": "browser-sync start --files 'dist/*' --server dist"
+    "server:watch": "browser-sync start --files 'dist/*' --server dist"
   },
   "repository": {
     "type": "git",
@@ -40,8 +41,7 @@
   },
   "homepage": "https://github.com/jameyquinn/jabacares.annualreport.2014",
   "dependencies": {
-    "fastclick": "^1.0.6",
-    "skrollr": "git://github.com/Prinzhorn/skrollr.git"
+    "fastclick": "^1.0.6"
   },
   "devDependencies": {
     "browser-sync": "^2.3.1",
@@ -63,5 +63,8 @@
       "browserify-shim"
     ]
   },
-  "browserify-shim": {}
+  "browserify-shim": {
+    "Raphael": "global:Raphael",
+    "_": "global:_"
+  }
 }
