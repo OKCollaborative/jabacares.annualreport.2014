@@ -9,14 +9,12 @@
     "postinstall": "echo there it goes!",
     "clean": "rimraf dist/*",
     "prebuild": "npm run clean -s && npm run lint",
-    "build": "npm run build:scripts -s && npm run build:styles -s && npm run build:fonts -s && npm run build:markup -s && npm run build:images -s",
+    "build": "npm run build:scripts -s && npm run build:styles -s && npm run build:fonts -s && npm run build:markup -s && npm run build:images",
     "build:scripts": "browserify --full-path=false -d assets/scripts/*.js > dist/jabacares.min.js",
     "build:fonts": "cp assets/fonts/* dist/",
     "build:styles": "stylus assets/styles/main.styl --include-css -m -o dist",
     "build:markup": "jade assets/markup/index.jade -P -o dist",
     "build:images": "imagemin assets/images/* -o 7 dist/images",
-    "build:scriptsDEFUNCT": "browserify -d assets/scripts/index.js -p [minifyify --compressPath . --map index.js.map --output dist/index.js.map] | hashmark -n dist/index.js -s -l 8 -m assets.json 'dist/{name}{hash}{ext}'",
-    "build:stylesDEFUNCT": "stylus assets/styles/main.stylus -m -o dist/ && hashmark -s -l 8 -m assets.json dist/main.css 'dist/{name}{hash}{ext}'",
     "lint": "jshint assets/scripts/.",
     "live-reload": "live-reload --port 35729 dist/",
     "prewatch": "npm run lint",
@@ -29,7 +27,8 @@
     "start": "npm run build && browser-sync start --server dist",
     "test": "mocha --require mocha --reporter spec ./test/*.js",
     "pretest": "npm run lint",
-    "server:watch": "browser-sync start --files 'dist/*' --server dist"
+    "server:watch": "browser-sync start --files 'dist/*' --server dist",
+    "deploy": "npm run build && node ./bin/s3-deploy.js"
   },
   "repository": {
     "type": "git",
@@ -54,6 +53,7 @@
     "minifyify": "^6.3.2",
     "nodemon": "^1.3.7",
     "rimraf": "^2.3.2",
+    "s3": "^4.4.0",
     "stylus": "^0.50.0",
     "uglify-js": "^2.4.17",
     "watch": "^0.14.0"

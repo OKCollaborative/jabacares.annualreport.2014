@@ -1,0 +1,43 @@
+@require 'helpers'
+
+#donors
+  margin 0
+  padding 1em
+  background dark
+  color dark-contrast
+
+  h2
+    font 500 2.5em/2.0 font-sans
+    line-height 1.4
+    margin 1em 0 0.25em 0
+    text-align center
+    color dark-contrast
+
+  h3
+    font 500 1.2em/1.4 font-sans
+    line-height 1.2
+    margin 1em 0 0.5em 0
+    text-align center
+    color dark-contrast
+
+  h4
+    margin 1em 0 0.25em 0
+    text-align center
+    color dark-contrast
+
+  ol.donors
+    -webkit-columns: 300px 3;
+    -moz-columns: 300px 3;
+    columns: 300px 3;
+
+    li
+      font 200 .9em/1.5 font-sans
+      line-height 1.4em
+      margin-left 1em
+      cursor normal
+
+      &:hover
+        color dark-high-contrast
+        cursor pointer
+        font-size 1.0em
+

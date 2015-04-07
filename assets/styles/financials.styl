@@ -1,33 +1,57 @@
+@require 'helpers'
+chart-size = 600
+
 #financials
   background-color #000
   color #fff
   width 100%
-  height 100%
   display inline-block
+  font-size 1.2em
+  h2, h3
+    text-align center
+    margin 1em auto 0
+    color #fff
 
 .revenues
 .expenses
   position relative
   float left
   width 50%
+  min-width (chart-size)px
   text-align center
+  ol
+    width 300px
+    li
+      margin 1px 0
 
 #expense-chart
 #revenue-chart
+  width (chart-size)px
   float none
   top 0
   left 0
+  right 0
+  margin 0 auto
 
 #expense-table
 #revenue-table
   //make same as chart for centering purposes
-  width 600px
-  height 600px
+  width (chart-size/2)px
+  height (chart-size/3)px
   text-align left
   float none
   position absolute
-  left 25%
-  top 40%
+  // center the div in the donut
+  left 0
+  right 0
+  margin 0 25%
+
+#expense-table
+  top 205px
+  font-size .9em
+#revenue-table
+  top 42%
+
 
 .budget-line
 .amount
@@ -36,3 +60,40 @@
 
 .amount
   float right
+
+.clicked
+  color yellow
+
+
+.fed
+  border-left 3px solid #a9bccd
+.state
+  border-left 3px solid #295882
+.local
+  border-left 3px solid #67b244
+.investment
+  border-left 3px solid #685ba3
+.fee
+  border-left 3px solid #bb2d17
+.philanthropy
+  border-left 3px solid #eb9000
+.affiliate-revenue
+  border-left 3px solid #368a8d
+.senior-center
+  border-left 3px solid #000000
+.health
+  border-left 3px solid #a9bccd
+.meals
+  border-left 3px solid #295882
+.info-assist
+  border-left 3px solid #67b244
+.counseling
+  border-left 3px solid #685ba3
+.ombudsmen
+  border-left 3px solid #bb2d17
+.affiliate-expense
+  border-left 3px solid #eb9000
+.care-center
+  border-left 3px solid #368a8d
+.transportation
+  border-left 3px solid #359207

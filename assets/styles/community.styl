@@ -1,9 +1,11 @@
 @require 'helpers'
 
+gutter = 8%
+
 #contributions
 #needs
   float left
-  font 200 1.0em/1.0 font-sans
+  font 200 .9em/1.0 font-sans
   width 50%
   min-height 600px
   h2
@@ -13,8 +15,9 @@
     letter-spacing 1.5px
   .container
     margin auto
-    padding 3em 5em
-    max-width 700px
+    padding 3em 1em
+    max-width 500px
+    min-width 200px
     .block
       width 100%
       min-height 7em
@@ -22,9 +25,11 @@
 #contributions
   background-color #295882
   color dark-high-contrast
+  padding-left gutter
 #needs
   background-color #edeae6
   color #295882
+  padding-right gutter
   h2
     color #079f00
 
@@ -45,8 +50,6 @@
     height 6em
     background-color #ffffff
     border 1px white solid
-    &:hover
-      border 1px black solid
 
 //needs
 .navigating
@@ -101,7 +104,6 @@
   vertical-align middle
   line-height 1.6em
   font-size 1.1em
-  overflow-y scroll
 
 
 //---- Left Icons
@@ -134,9 +136,6 @@
 
 .block
   margin 2em 0
-  &:hover
-    background-color blue
-
 
 
 .big-number
@@ -147,11 +146,9 @@
 
   color yellow
   display inline
-  font-size 1.8em
+  font-size 1.5em
   font-weight 300
   font-family font-sans
   padding 0 .25em
 
-  &:hover
-    font-size 1.8em
 

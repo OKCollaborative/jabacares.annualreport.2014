@@ -1,6 +1,18 @@
 var Raphael = require('Raphael'),
   _ = require('_');
 
+HTMLElement.prototype.removeClass = function(remove) {
+  var newClassName = "";
+  var i;
+  var classes = this.className.split(" ");
+  for(i = 0; i < classes.length; i++) {
+    if(classes[i] !== remove) {
+      newClassName += classes[i] + " ";
+    }
+  }
+  this.className = newClassName;
+};
+
 Raphael.fn.donutChart = function (cx, cy, r, rin, data, stroke) {
   var paper = this,
     rad = Math.PI / 180,
@@ -42,23 +54,37 @@ Raphael.fn.donutChart = function (cx, cy, r, rin, data, stroke) {
 
       p.node.setAttribute('class', 'sector ' + data[j].class || '');
       p.click(function (e) {
-        console.log(e);
-        _.union(chartRevenues,chartExpenses).forEach(function(element) {
-          var className = element.node.getAttribute('class');
-          if(className === 'sector') {
+        //turn off all other animations in chart
+        chart.forEach(function(element) {
+          var classNames = element.node.classList;
+          if(_.includes(classNames,  'sector')) {
             element.stop().animate({transform: ""}, ms, "elastic");
           }
-          else if(className === 'sectorTxt') {
+          else if(_.includes(classNames, 'sectorTxt')) {
             element.stop().animate({opacity: 0}, ms);
           }
         });
+
+        //then animate the clicked element
         p.stop().animate({transform: "s1.1 1.1 " + cx + " " + cy}, ms, "elastic");
+
         // txt.stop().animate({opacity: 1}, ms, "elastic");
+        //remove all clicked class
+        _.forEach(document.getElementsByClassName('clicked'), function(element){
+          element.removeClass('clicked');
+        });
+        //highlight the list item
+        _.forEach(document.getElementsByClassName(e.target.classList[1]), function(element){
+          if(element.tagName === 'LI'){
+            element.classList.add('clicked');
+          }
+        });
+
       });
 
       angle += angleplus;
       chart.push(p);
-      chart.push(txt);
+      // chart.push(txt);
       start += 0.1;
     };
 
