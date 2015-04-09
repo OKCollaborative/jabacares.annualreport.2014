@@ -9,8 +9,9 @@
     "postinstall": "echo there it goes!",
     "clean": "rimraf dist/*",
     "prebuild": "npm run clean -s && npm run lint",
-    "build": "npm run build:scripts -s && npm run build:styles -s && npm run build:fonts -s && npm run build:markup -s && npm run build:images",
-    "build:scripts": "browserify -g uglifyify assets/scripts/*.js > dist/jabacares.min.js",
+    "build": "npm run build:scripts:dist -s && npm run build:styles -s && npm run build:fonts -s && npm run build:markup -s && npm run build:images",
+    "build:scripts:dev": "browserify --full-path=false -d assets/scripts/index.js > dist/jabacares.min.js",
+    "build:scripts:dist": "browserify -g uglifyify assets/scripts/*.js > dist/jabacares.min.js",
     "build:fonts": "cp assets/fonts/* dist/",
     "build:styles": "stylus assets/styles/main.styl --include-css -m -o dist",
     "build:markup": "jade assets/markup/index.jade -P -o dist",
@@ -20,7 +21,7 @@
     "prewatch": "npm run lint",
     "watch": "npm run watch:scripts & npm run watch:styles & npm run watch:markup & npm run watch:images",
     "watch:markup": "watch 'npm run build:markup' assets/markup",
-    "watch:scripts": "watch 'npm run build:scripts' assets/scripts",
+    "watch:scripts": "watch 'npm run build:scripts:dev' assets/scripts",
     "watch:styles": "watch 'npm run build:styles' assets/styles",
     "watch:images": "watch 'npm run build:images' assets/images",
     "debug": "node-debug ./bin/www.js –no-debug-brk",
@@ -28,7 +29,7 @@
     "test": "mocha --require mocha --reporter spec ./test/*.js",
     "pretest": "npm run lint",
     "server:watch": "browser-sync start --files 'dist/*' --server dist",
-    "deploy": "npm run build && node ./bin/s3-deploy.js"
+    "deploy": "npm run build && node ./bin/s3-deploy.js && open http://jaba-annual-report-2014.s3-website-us-east-1.amazonaws.com"
   },
   "repository": {
     "type": "git",

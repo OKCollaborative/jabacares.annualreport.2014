@@ -1,4 +1,5 @@
 var Raphael = require('./chart-donut');
+var Liner = require('./liner');
 var attachFastClick = require('fastclick');
 
 attachFastClick(document.body);
@@ -45,6 +46,11 @@ module.exports = {
        //    document.getElementById('services').style.position = 'relative';
        // }
     };
+    $(window).resize(_.debounce(function(){
+      $( '.connector' ).remove()
+      Liner.connect($('.medicare .circle').get(0),$('.advocacy .circle').get(0), {color:'#0F0', weight:2} );
+    }, 500));
+
   }
 };
 

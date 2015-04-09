@@ -50,6 +50,8 @@ gutter = 8%
     height 6em
     background-color #ffffff
     border 1px white solid
+    &:hover
+      border 1px black solid
 
 //needs
 .navigating
@@ -84,18 +86,37 @@ gutter = 8%
 .institution .circle
   background-color #368a8d
 
-.medicare div[class^='icon-']
-  color #000000
-.advocacy div[class^='icon-']
-  color #67b244
-.meals div[class^='icon-']
-  color #bb2d17
-.caregiver-support div[class^='icon-']
-  color #685ba3
-.security div[class^='icon-']
-  color #eb9000
-.home div[class^='icon-']
-  color #368a8d
+.medicare
+  .circle
+    border-color #000000
+  div[class^='icon-']
+    color #000000
+.advocacy
+  .circle
+    border-color #67b244
+  div[class^='icon-']
+    color #67b244
+.meals
+  .circle
+    border-color #bb2d17
+  div[class^='icon-']
+    color #bb2d17
+.caregiver-support
+  .circle
+    border-color #685ba3
+  div[class^='icon-']
+    color #685ba3
+.security
+  .circle
+    border-color #eb9000
+  div[class^='icon-']
+    color #eb9000
+.home
+  .circle
+    border-color #368a8d
+  div[class^='icon-']
+    color #368a8d
+
 
 .description
   width 100%
@@ -149,6 +170,6 @@ gutter = 8%
   font-size 1.5em
   font-weight 300
   font-family font-sans
-  padding 0 .25em
+  padding-right .25em
 
 
