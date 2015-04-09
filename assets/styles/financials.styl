@@ -12,17 +12,22 @@ chart-size = 600
     margin 1em auto 0
     color #fff
 
+
 .revenues
 .expenses
   position relative
-  float left
-  width 50%
   min-width (chart-size)px
   text-align center
   ol
     width 300px
     li
       margin 1px 0
+
+.revenues
+  float left
+.expenses
+  float right
+
 
 #expense-chart
 #revenue-chart
@@ -44,10 +49,10 @@ chart-size = 600
   // center the div in the donut
   left 0
   right 0
-  margin 0 25%
+  margin 0 150px
 
 #expense-table
-  top 205px
+  top 225px
   font-size .9em
 #revenue-table
   top 42%
@@ -55,8 +60,12 @@ chart-size = 600
 
 .budget-line
 .amount
+  font-family font-serif
   display inline-block
   padding .1em .5em
+
+.budget-line
+  max-width 200px
 
 .amount
   float right
