@@ -47,10 +47,18 @@ module.exports = {
        // }
     };
     $(window).resize(_.debounce(function(){
-      $( '.connector' ).remove()
-      Liner.connect($('.medicare .circle').get(0),$('.advocacy .circle').get(0), {color:'#0F0', weight:2} );
+      $( '.connector' ).remove();
+      var connectors = [
+        ['medicare','advocacy'],
+        ['advocacy','meals'],
+        ['meals', 'caregiver-support'],
+        ['caregiver-support', 'security'],
+        ['security', 'home']
+      ];
+      _.forEach(connectors, function(connector){
+        Liner.connect($('.'+connector[0] + ' .circle').get(0),$('.'+connector[1] + ' .circle').get(0), {color:'#777', style: 'dotted', weight:2} );
+      });
     }, 500));
-
   }
 };
 
