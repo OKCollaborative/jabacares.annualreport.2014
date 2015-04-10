@@ -1,7 +1,10 @@
 var Raphael = require('Raphael'),
   _ = require('_');
 
-HTMLElement.prototype.removeClass = function(remove) {
+//polyfill window.HTMLElement
+var elementPrototype = typeof window.HTMLElement !== "undefined" ? window.HTMLElement.prototype : window.Element.prototype;
+
+elementPrototype.removeClass = function(remove) {
   var newClassName = "";
   var i;
   var classes = this.className.split(" ");

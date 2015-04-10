@@ -2,7 +2,7 @@
 module.exports = {
 
 	connect: function connect(div1, div2, lineOptions) {
-		lineOptions = lineOptions || {}
+		lineOptions = lineOptions || {};
 	  var offsetFrom = this.getOffset(div1);
 	  var offsetTo = this.getOffset(div2);
 

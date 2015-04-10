@@ -9,8 +9,8 @@
     "postinstall": "echo there it goes!",
     "clean": "rimraf dist/*",
     "prebuild": "npm run clean -s && npm run lint",
-    "build": "npm run build:scripts:dist -s && npm run build:styles -s && npm run build:fonts -s && npm run build:markup -s && npm run build:images",
-    "build:scripts:dev": "browserify --full-path=false -d assets/scripts/index.js > dist/jabacares.min.js",
+    "build": "npm run build:scripts:dist -s && npm run build:styles -s && npm run build:fonts -s && npm run build:markup -s && npm run build:images -s",
+    "build:scripts:dev": "browserify --full-path=false -d assets/scripts/*.js > dist/jabacares.min.js",
     "build:scripts:dist": "browserify -g uglifyify assets/scripts/*.js > dist/jabacares.min.js",
     "build:fonts": "cp assets/fonts/* dist/",
     "build:styles": "stylus assets/styles/main.styl --include-css -m -o dist",
@@ -66,6 +66,7 @@
   },
   "browserify-shim": {
     "Raphael": "global:Raphael",
-    "_": "global:_"
+    "_": "global:_",
+    "$": "global:jquery"
   }
 }

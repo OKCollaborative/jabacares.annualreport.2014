@@ -9,7 +9,7 @@
   font-weight: normal;
   font-style: normal;
 }
-[class^='icon-']:before{
+[class^='jaba-']:before{
 	display: inline-block;
   font-family: 'jaba-icons';
   font-style: normal;
@@ -18,17 +18,17 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale
 }
-.icon-costly-care:before{content:'\0041';}
-.icon-hot-meal:before{content:'\0043';}
-.icon-question:before{content:'\0044';}
-.icon-group-hug:before{content:'\0045';}
-.icon-info:before{content:'\0046';}
-.icon-aging-at-home:before{content:'\0047';}
-.icon-couple:before{content:'\0048';}
-.icon-assistance:before{content:'\004B';}
-.icon-medicine:before{content:'\004C';}
-.icon-pharma:before{content:'\004D';}
-.icon-old-man:before{content:'\004F';}
-.icon-admitted:before{content:'\0050';}
-.icon-costly-drugs:before{content:'\0051';}
-.icon-empty-plate:before{content:'\0053';}
+.jaba-costly-care:before{content:'\0041';}
+.jaba-hot-meal:before{content:'\0043';}
+.jaba-question:before{content:'\0044';}
+.jaba-group-hug:before{content:'\0045';}
+.jaba-info:before{content:'\0046';}
+.jaba-aging-at-home:before{content:'\0047';}
+.jaba-couple:before{content:'\0048';}
+.jaba-assistance:before{content:'\004B';}
+.jaba-medicine:before{content:'\004C';}
+.jaba-pharma:before{content:'\004D';}
+.jaba-old-man:before{content:'\004F';}
+.jaba-admitted:before{content:'\0050';}
+.jaba-costly-drugs:before{content:'\0051';}
+.jaba-empty-plate:before{content:'\0053';}

@@ -1,11 +1,19 @@
 @require 'helpers'
-@import 'Glyphter.css'
+@import 'jquery-ui.min.css'
+@import 'jquery-ui.structure.min.css'
+@import 'jquery-ui.theme.min.css'
+@import 'jaba-icons.css'
+@import 'virginia.css'
 @import 'base'
 @import 'community'
 @import 'financials'
 @import 'services'
 @import 'donors'
+@import 'places'
+@import 'facilities'
 
+body
+  min-width 800px
 
 .header
 .footer
@@ -14,16 +22,24 @@
   padding 0
   // position relative
 
-// .content
+.content
+  background-color #edeae6
 
-#title
-  height 125px
-  color #295882
-  padding 1em
-  background-color #a9bccd
-  .name
-    float right
-    font 400 2.0em/2.0 font-sans
+.header
+  border-top 1px solid #a9bccd
+  #title
+    color #295882
+    border-top
+    padding 1em
+    background-color #a9bccd
+    .name
+      margin 1.5em 2em 0
+      float right
+      font 400 2.0em/2.0 font-sans
+    .logo
+      margin 2.5em 3em 1.5em
+      width 120px
+
 
 
 #progress

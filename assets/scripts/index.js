@@ -38,8 +38,8 @@ module.exports = {
         position = {x:size.width/2,y:size.height/2},
         radius = {inner:200, outer: 250};
 
-    window.chartRevenues = Raphael("revenue-chart", size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.revenues, "#fff");
-    window.chartExpenses = Raphael("expense-chart", size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.expenses, "#fff");
+    window.chartRevenues = Raphael('revenue-chart', size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.revenues, '#fff');
+    window.chartExpenses = Raphael('expense-chart', size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.expenses, '#fff');
 
     window.onscroll = function(){
        // if(window.scrollY >= 800) {
@@ -59,6 +59,13 @@ module.exports = {
         Liner.connect($('.'+connector[0] + ' .circle').get(0),$('.'+connector[1] + ' .circle').get(0), {color:'#777', style: 'dotted', weight:2} );
       });
     }, 500));
+
+    $(function() {
+      $( document ).tooltip({
+        tooltipClass: 'custom-tooltip-styling',
+        position: { my: 'center top-20', at: 'center top', collision: 'flipfit' }
+      });
+    });
   }
 };
 

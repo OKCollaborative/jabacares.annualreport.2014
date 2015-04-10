@@ -11,8 +11,13 @@ html(lang="en")
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-61649852-1', 'auto');ga('send', 'pageview');
       }
 
-  body(
-    )
+  body()
+    <!--[if lt IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <p>In the meantime, you'll be presented a static version of the site as an image below - just the way it was designed.</p>
+    <img src="images/jaba-annual-report-2014.png" style="width:100%"/>
+    <![endif]-->
+
     .header
       include ./includes/title
     .content
@@ -20,6 +25,7 @@ html(lang="en")
       include ./includes/needs
       include ./includes/contributions
       include ./includes/places
+      include ./includes/facilities
       include ./includes/financials
       include ./includes/donors
     .footer
@@ -28,5 +34,6 @@ html(lang="en")
 
     script(src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js')
     script(src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/3.6.0/lodash.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js')
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
     script(src='jabacares.min.js')
