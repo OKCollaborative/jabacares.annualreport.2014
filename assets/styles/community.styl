@@ -1,60 +1,54 @@
 @require 'helpers'
 
-gutter = 8%
+gutter = 110px
 
-#contributions
-#needs
-  float left
-  font 200 .9em/1.0 font-sans
-  width 50%
-  min-height 600px
-  h2
-    font 100 1.5em/1.7 font-header
-    text-align center
-    margin 1em auto
-    letter-spacing 1.5px
-  .container
-    margin auto
-    padding 3em 1em
-    max-width 500px
-    min-width 200px
-    .block
-      width 100%
-      min-height 7em
-
-#contributions
+#community
+  width 100%
   background-color #295882
-  color dark-high-contrast
-  padding-left gutter
-#needs
-  background-color #edeae6
-  color #295882
-  padding-right gutter
-  h2
-    color #079f00
+  display table
 
-.caregiver-support
-.advocacy
-.home
-.navigating
-.food-insecurity
-.healthcare-reform
-.medicare
-.meals
-.security
-.social-isolation
-.caregivers
-.institution
+  .container
+    position relative
+
+.row
+  display table-row
+
+h2.contribution, h2.need
+  font 100 1.5em/1.7 font-header
+  text-align center
+  letter-spacing 1.5px
+  color #079f00
+  padding 1em 0 0
+  margin 0
+
+h2.contribution
+  color #fff
+h2.need
+  color #295882
+
+.contribution
+.need
+  display table-cell
   position relative
   z-index 10 // above the connector lines
+  font 200 .9em/1.0 font-sans
+  width 50%
+  margin auto
+  padding 3em 1em
+  min-width 200px
+  cursor pointer
+  &:hover
+    .circle
+        border 1px black solid
+        background-color white
+        div[class^='jaba-']
+          color #295882
 
-//contributions
-.medicare
-.caregiver-support
-.meals
-.advocacy
-.security
-.home
+
+.contribution
+  color dark-high-contrast
+  padding-left gutter
+  width 49%
   div[class^='jaba-']
     font-size 4em
     color dark-high-contrast
@@ -65,16 +59,14 @@ gutter = 8%
     height 6em
     background-color #ffffff
     border 1px white solid
-    &:hover
-      border 1px black solid
+  &:hover
+    color #ccc
 
-//needs
-.navigating
-.social-isolation
-.food-insecurity
-.caregivers
-.healthcare-reform
-.institution
+.need
+  background-color #edeae6
+  color #295882
+  padding-right gutter
+  width 49%
   div[class^='jaba-']
     font-size 4em
     color dark-high-contrast
@@ -85,8 +77,8 @@ gutter = 8%
     height 6em
     display inline-block
     border 1px white solid
-    &:hover
-      border 1px black solid
+  &:hover
+    color #67B244
 
 .navigating .circle
   background-color #000000
@@ -132,15 +124,12 @@ gutter = 8%
   div[class^='jaba-']
     color #368a8d
 
-
 .description
   width 100%
   height 6em
   display table-cell
-  vertical-align middle
   line-height 1.6em
   font-size 1.1em
-
 
 //---- Left Icons
 .caregiver-support
@@ -170,8 +159,8 @@ gutter = 8%
   .description
     padding-right 1.5em
 
-.block
-  margin 2em 0
+//.block
+//  margin 2em 0
 
 
 .big-number
@@ -188,3 +177,8 @@ gutter = 8%
   padding-right .25em
 
 
+.connector
+  z-index 99
+.circle
+  cursor pointer
+  position relative

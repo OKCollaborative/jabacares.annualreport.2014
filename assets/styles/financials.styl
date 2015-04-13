@@ -1,8 +1,11 @@
 @require 'helpers'
-chart-size = 600
+chart-size = 500
+
+path
+  cursor pointer
 
 #financials
-  background-color #000
+  background-color #333
   color #fff
   width 100%
   display inline-block
@@ -10,65 +13,54 @@ chart-size = 600
   h2, h3
     font-family font-header
     text-align center
-    margin 1em auto 0
     color #fff
-
+  h2
+    margin .75em auto .5em
+  h3
+    margin 0 auto .5em
 
 .revenues
 .expenses
   position relative
+  width 49%
   min-width (chart-size)px
   text-align center
+  display inline-block
   ol
-    width 300px
+    width (chart-size/2 + 25)px
     li
       margin 1px 0
-
-.revenues
-  float left
-.expenses
-  float right
-
-
-#expense-chart
-#revenue-chart
-  width (chart-size)px
-  float none
-  top 0
-  left 0
-  right 0
-  margin 0 auto
 
 #expense-table
 #revenue-table
   //make same as chart for centering purposes
-  width (chart-size/2)px
   height (chart-size/3)px
   text-align left
   float none
   position absolute
-  // center the div in the donut
+  max-width 275px
+  width 49%
   left 0
   right 0
-  margin 0 150px
-
+  margin 0 auto
 #expense-table
-  top 225px
+  top 175px
   font-size .9em
 #revenue-table
-  top 42%
+  top 225px
 
 
 .budget-line
 .amount
   font-family font-serif
   display inline-block
-  padding .1em .5em
+  padding .1em 0 .1em .3em
 
 .budget-line
   max-width 200px
 
 .amount
+  font-size 14px
   float right
 
 .clicked

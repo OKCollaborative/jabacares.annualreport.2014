@@ -42,6 +42,7 @@ Raphael.fn.donutChart = function (cx, cy, r, rin, data, stroke) {
   var angle = 0,
     total = 0,
     start = 0,
+
     process = function (j) {
       var value = data[j].value,
         angleplus = 360 * value / total,
@@ -51,39 +52,40 @@ Raphael.fn.donutChart = function (cx, cy, r, rin, data, stroke) {
         delta = 30,
         bcolor = data[j].color || Raphael.hsb(start, 1, 1),
         p = sector(cx, cy, r, angle, angle + angleplus, {fill: "90-" + bcolor + "-" + color, stroke: stroke, "stroke-width": 1}),
-        txt = paper.text(cx + (r + delta + 55) * Math.cos(-popangle * rad), cy + (r + delta + 25) * Math.sin(-popangle * rad), data[j].label).attr({fill: bcolor, stroke: "none", opacity: 0, "font-size": 20});
+        txt = paper.text(cx + (r + delta + 55) * Math.cos(-popangle * rad), cy + (r + delta + 25) * Math.sin(-popangle * rad), data[j].label).attr({fill: bcolor, stroke: "none", opacity: 0, "font-size": 20}),
+        segmentHighlight = function (e) {
+          //turn off all other animations in chart
+          chart.forEach(function(element) {
+            var classNames = element.node.classList;
+            if(_.includes(classNames,  'sector')) {
+              element.stop().animate({transform: ""}, ms, "elastic");
+            }
+            else if(_.includes(classNames, 'sectorTxt')) {
+              element.stop().animate({opacity: 0}, ms);
+            }
+          });
 
+          //then animate the clicked element
+          p.stop().animate({transform: "s1.1 1.1 " + cx + " " + cy}, ms, "elastic");
+
+          // txt.stop().animate({opacity: 1}, ms, "elastic");
+          //remove all clicked class
+          _.forEach(document.getElementsByClassName('clicked'), function(element){
+            element.removeClass('clicked');
+          });
+          //highlight the list item
+          _.forEach(document.getElementsByClassName(e.target.classList[1]), function(element){
+            if(element.tagName === 'LI'){
+              element.classList.add('clicked');
+            }
+          });
+        }
+      ;
       // txt.node.setAttribute('class', 'sectorTxt');
 
       p.node.setAttribute('class', 'sector ' + data[j].class || '');
-      p.click(function (e) {
-        //turn off all other animations in chart
-        chart.forEach(function(element) {
-          var classNames = element.node.classList;
-          if(_.includes(classNames,  'sector')) {
-            element.stop().animate({transform: ""}, ms, "elastic");
-          }
-          else if(_.includes(classNames, 'sectorTxt')) {
-            element.stop().animate({opacity: 0}, ms);
-          }
-        });
-
-        //then animate the clicked element
-        p.stop().animate({transform: "s1.1 1.1 " + cx + " " + cy}, ms, "elastic");
-
-        // txt.stop().animate({opacity: 1}, ms, "elastic");
-        //remove all clicked class
-        _.forEach(document.getElementsByClassName('clicked'), function(element){
-          element.removeClass('clicked');
-        });
-        //highlight the list item
-        _.forEach(document.getElementsByClassName(e.target.classList[1]), function(element){
-          if(element.tagName === 'LI'){
-            element.classList.add('clicked');
-          }
-        });
-
-      });
+      p.click(segmentHighlight);
+      p.hover(segmentHighlight);
 
       angle += angleplus;
       chart.push(p);

@@ -34,9 +34,9 @@ module.exports = {
       ],
     };
 
-    var size = {width:600,height:600},
+    var size = {width:500,height:500},
         position = {x:size.width/2,y:size.height/2},
-        radius = {inner:200, outer: 250};
+        radius = {inner:175, outer: 210};
 
     window.chartRevenues = Raphael('revenue-chart', size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.revenues, '#fff');
     window.chartExpenses = Raphael('expense-chart', size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.expenses, '#fff');
@@ -58,13 +58,44 @@ module.exports = {
       _.forEach(connectors, function(connector){
         Liner.connect($('.'+connector[0] + ' .circle').get(0),$('.'+connector[1] + ' .circle').get(0), {color:'#777', style: 'dotted', weight:2} );
       });
+      connectors = [
+        ['navigating','social-isolation'],
+        ['social-isolation','food-insecurity'],
+        ['food-insecurity', 'caregivers'],
+        ['caregivers', 'healthcare-reform'],
+        ['healthcare-reform', 'institution']
+      ];
+      _.forEach(connectors, function(connector){
+        Liner.connect($('.'+connector[0] + ' .circle').get(0),$('.'+connector[1] + ' .circle').get(0), {color:'#009', style: 'dotted', weight:2} );
+      });
     }, 500));
 
-    $(function() {
-      $( document ).tooltip({
-        tooltipClass: 'custom-tooltip-styling',
-        position: { my: 'center top-20', at: 'center top', collision: 'flipfit' }
-      });
+    // $(function() {
+    //   $( document ).tooltip({
+    //     tooltipClass: 'custom-tooltip-styling',
+    //     position: { my: 'center top-20', at: 'center top', collision: 'flipfit' }
+    //   });
+    // });
+
+    function highlightServices(selectors){
+
+      var serviceSelectors = (selectors.data || []).join(',') ;
+      if(serviceSelectors.length){
+        $( '#services li' + serviceSelectors ).removeClass('fadeback');
+        $( '#services li:not(' + serviceSelectors + ')').addClass('fadeback');
+      }
+    }
+    var objectives = {
+      '.need.navigating,.contribution.medicare'          :['.info','.options','.medicare','.mortgage','.wills','.dual'],
+      '.need.social-isolation,.contribution.advocacy'    :['.transitions','.health'],
+      '.need.food-insecurity,.contribution.meals'        :['.home-meals','.center-meals'],
+      '.need.caregivers,.contribution.caregiver-support' :['.info','.caregiver','.home','.mountainside','.acc'],
+      '.need.healthcare-reform,.contribution.security'   :['.info','.aca','.medicare','.mortgage','.wellness'],
+      '.need.institution,.contribution.home'             :['.pace','.ombudsmen']
+    };
+    _.forEach(objectives, function(services,objective){
+      $(objective).on('mouseover',services, highlightServices);
+      $(objective).on('click',services, highlightServices);
     });
   }
 };
