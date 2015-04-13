@@ -1,20 +1,21 @@
 var Raphael = require('Raphael'),
-  _ = require('_');
+  _ = require('_'),
+  $ = window.$;
 
 //polyfill window.HTMLElement
-var elementPrototype = typeof window.HTMLElement !== "undefined" ? window.HTMLElement.prototype : window.Element.prototype;
+// var elementPrototype = typeof window.HTMLElement !== "undefined" ? window.HTMLElement.prototype : window.Element.prototype;
 
-elementPrototype.removeClass = function(remove) {
-  var newClassName = "";
-  var i;
-  var classes = this.className.split(" ");
-  for(i = 0; i < classes.length; i++) {
-    if(classes[i] !== remove) {
-      newClassName += classes[i] + " ";
-    }
-  }
-  this.className = newClassName;
-};
+// elementPrototype.removeClass = function(remove) {
+//   var newClassName = "";
+//   var i;
+//   var classes = this.className.split(" ");
+//   for(i = 0; i < classes.length; i++) {
+//     if(classes[i] !== remove) {
+//       newClassName += classes[i] + " ";
+//     }
+//   }
+//   this.className = newClassName;
+// };
 
 Raphael.fn.donutChart = function (cx, cy, r, rin, data, stroke) {
   var paper = this,
@@ -53,32 +54,24 @@ Raphael.fn.donutChart = function (cx, cy, r, rin, data, stroke) {
         bcolor = data[j].color || Raphael.hsb(start, 1, 1),
         p = sector(cx, cy, r, angle, angle + angleplus, {fill: "90-" + bcolor + "-" + color, stroke: stroke, "stroke-width": 1}),
         txt = paper.text(cx + (r + delta + 55) * Math.cos(-popangle * rad), cy + (r + delta + 25) * Math.sin(-popangle * rad), data[j].label).attr({fill: bcolor, stroke: "none", opacity: 0, "font-size": 20}),
-        segmentHighlight = function (e) {
+        segmentHighlight = function (event) {
           //turn off all other animations in chart
           chart.forEach(function(element) {
-            var classNames = element.node.classList;
-            if(_.includes(classNames,  'sector')) {
+            if($(element.node).attr('class').indexOf('sector') !== -1) {
               element.stop().animate({transform: ""}, ms, "elastic");
-            }
-            else if(_.includes(classNames, 'sectorTxt')) {
-              element.stop().animate({opacity: 0}, ms);
             }
           });
 
           //then animate the clicked element
           p.stop().animate({transform: "s1.1 1.1 " + cx + " " + cy}, ms, "elastic");
 
-          // txt.stop().animate({opacity: 1}, ms, "elastic");
           //remove all clicked class
-          _.forEach(document.getElementsByClassName('clicked'), function(element){
-            element.removeClass('clicked');
-          });
+          $('.clicked').toggleClass('clicked');
           //highlight the list item
-          _.forEach(document.getElementsByClassName(e.target.classList[1]), function(element){
-            if(element.tagName === 'LI'){
-              element.classList.add('clicked');
-            }
-          });
+          var clickedClasses = $(event.target).attr('class').split(/\s+/);
+          if(clickedClasses.length > 1 ){
+            $('.' + clickedClasses[1]).addClass('clicked');
+          }
         }
       ;
       // txt.node.setAttribute('class', 'sectorTxt');

@@ -94,8 +94,8 @@ module.exports = {
       '.need.institution,.contribution.home'             :['.pace','.ombudsmen']
     };
     _.forEach(objectives, function(services,objective){
-      $(objective).on('mouseover',services, highlightServices);
-      $(objective).on('click',services, highlightServices);
+      $(objective).on('click mouseover',services, highlightServices);
+      // $(objective).on('click',services, highlightServices);
     });
   }
 };
