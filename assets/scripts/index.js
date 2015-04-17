@@ -42,9 +42,15 @@ module.exports = {
     window.chartExpenses = Raphael('expense-chart', size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.expenses, '#fff');
 
     window.onscroll = function(){
-       // if(window.scrollY >= 800) {
-       //    document.getElementById('services').style.position = 'relative';
-       // }
+       if(window.scrollY >= 800) {
+          document.getElementById('services').style.position = 'absolute';
+          document.getElementById('services').style.top = '1050px';
+
+       }
+       else if(window.scrollY < 800) {
+          document.getElementById('services').style.position = 'fixed';
+          document.getElementById('services').style.top = '250px';
+       }
     };
     $(window).resize(_.debounce(function(){
       $( '.connector' ).remove();
@@ -70,12 +76,12 @@ module.exports = {
       });
     }, 500));
 
-    // $(function() {
-    //   $( document ).tooltip({
-    //     tooltipClass: 'custom-tooltip-styling',
-    //     position: { my: 'center top-20', at: 'center top', collision: 'flipfit' }
-    //   });
-    // });
+    $(function() {
+      $( document ).tooltip({
+        tooltipClass: 'custom-tooltip-styling',
+        position: { my: 'center top-20', at: 'center top', collision: 'flipfit' }
+      });
+    });
 
     function highlightServices(selectors){
 
@@ -84,6 +90,9 @@ module.exports = {
         $( '#services li' + serviceSelectors ).removeClass('fadeback');
         $( '#services li:not(' + serviceSelectors + ')').addClass('fadeback');
       }
+    }
+    function unFade(){
+        $( '#services li' ).removeClass('fadeback');
     }
     var objectives = {
       '.need.navigating,.contribution.medicare'          :['.info','.options','.medicare','.mortgage','.wills','.dual'],
@@ -97,6 +106,8 @@ module.exports = {
       $(objective).on('click mouseover',services, highlightServices);
       // $(objective).on('click',services, highlightServices);
     });
+
+    $('#community').on('mouseout', unFade);
   }
 };
 
