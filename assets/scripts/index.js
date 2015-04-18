@@ -36,21 +36,24 @@ module.exports = {
 
     var size = {width:500,height:500},
         position = {x:size.width/2,y:size.height/2},
-        radius = {inner:175, outer: 210};
+        radius = {inner:175, outer: 210},
+        servicesMax = $('#places').offset().top - 25 - $('#services').height(),
+        $services = $('#services');
 
+    $services.el = $services.get(0);
     window.chartRevenues = Raphael('revenue-chart', size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.revenues, '#fff');
     window.chartExpenses = Raphael('expense-chart', size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.expenses, '#fff');
 
     window.onscroll = function(){
-       if(window.scrollY >= 800) {
-          document.getElementById('services').style.position = 'absolute';
-          document.getElementById('services').style.top = '1050px';
-
-       }
-       else if(window.scrollY < 800) {
-          document.getElementById('services').style.position = 'fixed';
-          document.getElementById('services').style.top = '250px';
-       }
+      console.log(window.scrollY , servicesMax,  $services.offset().top);
+      if($services.offset().top >= servicesMax) {
+        $services.el.style.position = 'absolute';
+        $services.el.style.top = servicesMax + 'px';
+      }
+      else if(window.scrollY < servicesMax ){
+        $services.el.style.position = 'fixed';
+        $services.el.style.top = '250px';
+      }
     };
     $(window).resize(_.debounce(function(){
       $( '.connector' ).remove();
@@ -63,16 +66,6 @@ module.exports = {
       ];
       _.forEach(connectors, function(connector){
         Liner.connect($('.'+connector[0] + ' .circle').get(0),$('.'+connector[1] + ' .circle').get(0), {color:'#777', style: 'dotted', weight:2} );
-      });
-      connectors = [
-        ['navigating','social-isolation'],
-        ['social-isolation','food-insecurity'],
-        ['food-insecurity', 'caregivers'],
-        ['caregivers', 'healthcare-reform'],
-        ['healthcare-reform', 'institution']
-      ];
-      _.forEach(connectors, function(connector){
-        Liner.connect($('.'+connector[0] + ' .circle').get(0),$('.'+connector[1] + ' .circle').get(0), {color:'#009', style: 'dotted', weight:2} );
       });
     }, 500));
 
