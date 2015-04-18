@@ -2,6 +2,12 @@
 @font-face {
   font-family: 'jaba-icons';
   src: url('jaba-icons.eot');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'jaba-icons';
+  src: url('jaba-icons.eot');
   src: url('jaba-icons?#iefix') format('embedded-opentype'),
        url('jaba-icons.woff') format('woff'),
        url('jaba-icons.ttf') format('truetype'),
