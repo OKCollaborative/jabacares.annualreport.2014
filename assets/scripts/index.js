@@ -45,36 +45,40 @@ module.exports = {
     window.chartExpenses = Raphael('expense-chart', size.width, size.height).donutChart(position.x, position.y, radius.outer, radius.inner, financials.expenses, '#fff');
 
     window.onscroll = function(){
-      console.log(window.scrollY , servicesMax,  $services.offset().top);
-      if($services.offset().top >= servicesMax) {
+      // console.log(window.scrollY , servicesMax,  $services.offset().top);
+      if($services.offset().top >= servicesMax ) {
+        $services.absolute = true;
         $services.el.style.position = 'absolute';
         $services.el.style.top = servicesMax + 'px';
       }
       else if(window.scrollY < servicesMax ){
+        $services.absolute = false;
         $services.el.style.position = 'fixed';
         $services.el.style.top = '250px';
       }
     };
-    $(window).resize(_.debounce(function(){
-      $( '.connector' ).remove();
+
+    function connect(){
       var connectors = [
-        ['medicare','advocacy'],
-        ['advocacy','meals'],
-        ['meals', 'caregiver-support'],
-        ['caregiver-support', 'security'],
-        ['security', 'home']
+        ['.navigating .description','.medicare .description'],
+        ['.social-isolation .circle','.advocacy .circle'],
+        ['.food-insecurity .description','.meals .description'],
+        ['.caregivers .circle','.caregiver-support .circle'],
+        ['.healthcare-reform .description','.security .description'],
+        ['.institution .circle','.home .circle'],
       ];
       _.forEach(connectors, function(connector){
-        Liner.connect($('.'+connector[0] + ' .circle').get(0),$('.'+connector[1] + ' .circle').get(0), {color:'#777', style: 'dotted', weight:2} );
+        Liner.connect($(connector[0]).get(0),$(connector[1]).get(0), {color:'#777', style: 'dotted', weight:2} );
       });
-    }, 500));
+    }
 
-    $(function() {
-      $( document ).tooltip({
-        tooltipClass: 'custom-tooltip-styling',
-        position: { my: 'center top-20', at: 'center top', collision: 'flipfit' }
-      });
-    });
+    connect();
+
+    $(window).resize(_.debounce(function(){
+      window.onscroll(); //reset services block
+      $( '.connector' ).remove();
+      connect();
+    }, 500));
 
     function highlightServices(selectors){
 
@@ -96,11 +100,48 @@ module.exports = {
       '.need.institution,.contribution.home'             :['.pace','.ombudsmen']
     };
     _.forEach(objectives, function(services,objective){
-      $(objective).on('click mouseover',services, highlightServices);
-      // $(objective).on('click',services, highlightServices);
+      $(objective).on('mouseover',services, highlightServices);
+      $(objective).on('click',services, highlightServices);
     });
 
     $('#community').on('mouseout', unFade);
+
+
+    $('.need,.contribution').on('click', function() {
+      $('.selected').not(this).removeClass('selected');
+
+      if($(this).hasClass('selected')) {
+        $(this).removeClass('selected');
+        $('#detail').slideFadeToggle();
+      } else {
+        $(this).addClass('selected');
+        // debugger
+        var $detail = $('#detail');
+        var position = { top: $(this).offset().top + $(this).height() + 15, left: $(this).offset().left};
+        $('#source .text').html( $(this).data('source') );
+        $('#more .text').html( $(this).data('description') );
+        $detail.css({top: position.top, left: position.left, width:$(this).width(),'margin-left':$(this).css('padding-left')});
+        if($('#detail').css('display')==='none'){
+          $('#detail').slideFadeToggle();
+        }
+      }
+      return false;
+    });
+
+    function deselect(e) {
+      $('#detail').slideFadeToggle(function() {
+        e.removeClass('selected');
+      });
+    }
+    $('.close').on('click', function() {
+      // if($(this).class
+      deselect($('.need,.contribution'));
+      return false;
+    });
+
+    $.fn.slideFadeToggle = function(easing, callback) {
+      return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+    };
   }
 };
 

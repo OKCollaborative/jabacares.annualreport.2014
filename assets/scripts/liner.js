@@ -8,11 +8,11 @@ module.exports = {
 
 	  var line = {
 	    start:{
-	      x:offsetFrom.left + offsetFrom.width/2,
-	      y:offsetFrom.top + offsetFrom.height/2
+	      x:offsetFrom.left + offsetFrom.width + 20,
+	      y:offsetFrom.top + offsetTo.height/2
 	    },
 	    end:{
-	      x:offsetTo.left + offsetTo.width/2,
+	      x:offsetTo.left -20,
 	      y:offsetTo.top + offsetTo.height/2
 	    }
 	  };
@@ -25,7 +25,7 @@ module.exports = {
 	  };
 	  line.angle = Math.atan2((line.start.y-line.end.y),(line.start.x-line.end.x))*(180/Math.PI);
 
-	  var htmlLine = "<div class='connector' style='border-top:" + lineOptions.weight + "px " + lineOptions.style + " "  + lineOptions.color + ";left:" + line.center.x + "px; top:" + line.center.y + "px; width:" + line.length + "px;" + this.transform(line.angle) + "'/>";
+	  var htmlLine = "<div class='connector' style='left:" + line.center.x + "px; top:" + line.center.y + "px; width:" + line.length + "px;" + this.transform(line.angle) + "'/>";
 	  //
 	  //document.body.innerHTML += htmlLine;
 	  $('body').append($(htmlLine));
@@ -40,6 +40,7 @@ module.exports = {
 	},
 
 	getOffset: function getOffset( el ) {
+		if(!el || !el.offsetWidth || !el.offsetHeight){ return false; }
 		var _x = 0;
 		var _y = 0;
 		var _w = el.offsetWidth|0;

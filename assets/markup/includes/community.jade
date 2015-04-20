@@ -1,4 +1,12 @@
 #community
+  #detail
+    #source
+      .label Source:
+      .text
+    #more
+      .label More detail:
+      .text
+
   .container
     //- include services
 
@@ -7,11 +15,19 @@
       h2.contribution Our Contributions
 
     .row
-      .need.navigating
+      .need.navigating(
+        data-source='Interviews'
+        data-description='Information collected during individual interviews for financial and insurance counseling, reported in the State Health Insurance Program National Performance Reporting Tool, October 1, 2013 – September 30, 2014.'
+        title='Information collected during individual interviews for financial and insurance counseling, reported in the State Health Insurance Program National Performance Reporting Tool, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-question
-        .description 40% of seniors don't use the internet at all and require direct support navigating Medicare and accessing community resources
-      .contribution.medicare
+        .description While more people 65+ are accessing the internet and using mobile devices, the Pew Research Center found that over 40 percent of seniors don't use the internet at all and 23 percent don't use cell phones. This makes navigating complex issues such as Medicare difficult, if not impossible, without direct support.
+      .contribution.medicare(
+        data-source='Interviews'
+        data-description='Information collected during individual interviews for financial and insurance counseling, reported in the State Health Insurance Program National Performance Reporting Tool, October 1, 2013 – September 30, 2014.'
+        title='Information collected during individual interviews for financial and insurance counseling, reported in the State Health Insurance Program National Performance Reporting Tool, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-info
         .description
@@ -20,11 +36,19 @@
 
 
     .row
-      .need.social-isolation
+      .need.social-isolation(
+        data-source='JABA, 2014'
+        data-description='Information collected during individual interviews for financial and insurance counseling, October 1, 2013 – September 30, 2014.'
+        title='Information collected during individual interviews for financial and insurance counseling, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-old-man
-        .description As much as 43% of older adults experience social isolation increasing their risk of serious physical and mental health problems
-      .contribution.advocacy(title='As reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.')
+        .description As people get older, the likelihood that they will be alone increases. In fact, research shows that loneliness and social isolation can lead to serious physical and mental health problems, putting seniors at risk for abuse, drug and alcohol addiction, and even contribute to cognitive decline and early death.
+      .contribution.advocacy(
+        data-source='JABA, 2014'
+        data-description='Information collected during individual interviews for financial and insurance counseling, October 1, 2013 – September 30, 2014.'
+        title='Information collected during individual interviews for financial and insurance counseling, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-group-hug
         .description
@@ -33,11 +57,19 @@
 
 
     .row
-      .need.food-insecurity
+      .need.food-insecurity(
+        data-source='JABA, 2014'
+        data-description='As reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.'
+        title='As reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-empty-plate
-        .description In our planning district, food insecurity strikes 7.1% of people 65+
-      .contribution.meals(title='')
+        .description The Blue Ridge Food Bank tells us that in Planning District Ten, 7.1% of people 65+ are food insecure. Food insecurity has been found to be a strong indicator of significant financial and social strain.
+      .contribution.meals(
+        data-source='JABA, 2014'
+        data-description='As reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.'
+        title='As reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-hot-meal
         .description
@@ -46,11 +78,19 @@
 
 
     .row
-      .need.caregivers
+      .need.caregivers(
+        data-source='JABA, 2014'
+        data-description='Information collected during individual interviews for financial and insurance counseling and group presentations and reported in Senior Medicare Patrol reporting tool, October 1, 2013 – September 30, 2014.'
+        title='Information collected during individual interviews for financial and insurance counseling and group presentations and reported in Senior Medicare Patrol reporting tool, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-admitted
-        .description Unpaid caregivers provided an estimated 90% of all long-term care in this country. Half admit that their health has suffered as a result
-      .contribution.caregiver-support
+        .description Caregiving is a tough job. Over 80 percent of the unpaid caregivers in the country are family members, friends, and neighbors. Unpaid caregivers provided an estimated 90 percent of all long-term care in this country. Sadly, half of those caregivers say their health has suffered due to caregiving and that they are too tired and do not have the time to take care of themselves.
+      .contribution.caregiver-support(
+        data-source='JABA, 2014'
+        data-description='Information collected during individual interviews for financial and insurance counseling and group presentations and reported in Senior Medicare Patrol reporting tool, October 1, 2013 – September 30, 2014.'
+        title='Information collected during individual interviews for financial and insurance counseling and group presentations and reported in Senior Medicare Patrol reporting tool, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-assistance
         .description
@@ -58,13 +98,20 @@
           | people in our planning district enjoy peace of mind because their loved one is safe during the day, while they remain actively employed themselves, thus improving the quality of a senior’s day life and allowing the caregiver the health and time to provide for the family
 
 
-
     .row
-      .need.healthcare-reform
+      .need.healthcare-reform(
+        data-source='JABA, 2014'
+        data-description='Information collected daily and reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.'
+        title='Information collected daily and reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-costly-drugs
-        .description 89% of seniors need more information about healthcare reform and its impact on Medicare, their own budgets, and their long-term security
-      .contribution.security(title='Information collected during individual interviews for financial and insurance counseling and group presentations and reported in Senior Medicare Patrol reporting tool, October 1, 2013 – September 30, 2014.')
+        .description Healthcare reform, along with fears about affordability, has created much confusion for seniors. A recent poll found that 89 percent of those surveyed said they need more information about how healthcare reform will affect Medicare.  Many of these same seniors feel insecure about managing their budgets for these and other necessary expenditures.
+      .contribution.security(
+        data-source='JABA, 2014'
+        data-description='Information collected daily and reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.'
+        title='Information collected daily and reported in Virginia’s No Wrong Door Information System, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-medicine
         .description
@@ -72,17 +119,23 @@
           | people were assisted by JABA counselors in making a sound judgment on Medicare prescription coverage, personal financial wellness and Affordable Care Act marketplace decisions
 
 
-
-
     .row
-      .need.institution
+      .need.institution(
+        data-source='JABA, 2014'
+        data-description='Volunteer hours reported by individual and recorded in Volunteer Reporter, October 1, 2013 – September 30, 2014.'
+        title='Volunteer hours reported by individual and recorded in Volunteer Reporter, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-costly-care
-        .description As many as 89% of seniors want to age at home. More than half express concern about how they might be able to do so
-      .contribution.home
+        .description According to several recent studies, seniors fear losing their independence even more than death. Indeed, according to one study, 89 percent of those seniors surveyed said they wanted to age at home. However, more than half of those surveyed said they were concerned about how they would be able to do so.
+      .contribution.home(
+        data-source='JABA, 2014'
+        data-description='Volunteer hours reported by individual and recorded in Volunteer Reporter, October 1, 2013 – September 30, 2014.'
+        title='Volunteer hours reported by individual and recorded in Volunteer Reporter, October 1, 2013 – September 30, 2014.'
+        )
         .circle
           .jaba-aging-at-home
         .description
           .big-number 3,012
-          | people —previously deemed nursing home eligible — were provided a safe, secure environment in their own homes while still receiving medical oversight
+          | people — deemed nursing-home-eligible — were instead provided a safe, secure environment in their own homes while still receiving medical oversight
 

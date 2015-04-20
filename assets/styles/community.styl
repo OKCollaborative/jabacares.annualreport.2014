@@ -3,6 +3,36 @@
 gutter = 110px
 edge = 5em
 
+a.selected
+  background-color #1F75CC
+  color white
+  z-index 100
+
+
+#detail
+  border-radius(1em)
+  background-color #ddd
+  border 1px solid #999999
+  cursor default
+  display none
+  margin-top  2em
+  position absolute
+  text-align left
+  width 394px
+  z-index 50
+  padding  1em
+
+#source, #more
+  padding .5em
+
+.label
+  color  #444
+  font-weight 600
+  margin-bottom  3px
+  padding-left  15px
+  text-indent  -15px
+.text
+  line-height 1.1em
 #community
   width 100%
   background-color #295882
@@ -181,6 +211,11 @@ h2.need
 
 .connector
   z-index 99
+  font-size 2.2em
+  color #EB9000
+  &:before
+    content '.  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  . '
+
 .circle
   cursor pointer
   position relative
