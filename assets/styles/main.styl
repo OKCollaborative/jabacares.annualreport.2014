@@ -41,29 +41,32 @@ body
       margin 2.5em 3em 1.5em
       width 120px
 
+.footer
 
-
-#progress
-  height 2%
-  background #444
-  bottom 0
-  z-index 101
-
-#properties
   width 100%
-  height 100%
-  padding-top 10%
-  text-align center
-  -webkit-box-sizing  border-box
-  -moz-box-sizing  border-box
-  box-sizing  border-box
 
 #credits
-  display none
-  position absolute
-  top 90%
-  right 2em
+  text-align right
+  padding 1em 2em
+  margin 0 0 2em
+  background-color #685ba3
   color muted
+  .credit
+    margin .5em 0
+  a
+    margin 0 .25em
+    text-decoration none
+    &:hover
+      border-bottom 1px dashed #999
+
+  .okc
+    font-size 1.1em
+    a
+      color #fff
+  .small
+    font-size .9em
+  .hidden
+    display none
 
 // line to connect the circles
 .connector{
