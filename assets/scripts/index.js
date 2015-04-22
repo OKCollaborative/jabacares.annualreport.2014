@@ -115,7 +115,6 @@ module.exports = {
         $('#detail').slideFadeToggle();
       } else {
         $(this).addClass('selected');
-        // debugger
         var $detail = $('#detail');
         var position = { top: $(this).offset().top + $(this).height() + 15, left: $(this).offset().left};
         $('#source .text').html( $(this).data('source') );
@@ -133,8 +132,7 @@ module.exports = {
         e.removeClass('selected');
       });
     }
-    $('.close').on('click', function() {
-      // if($(this).class
+    $('#detail').on('click', function() {
       deselect($('.need,.contribution'));
       return false;
     });
