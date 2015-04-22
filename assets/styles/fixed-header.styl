@@ -1,0 +1,52 @@
+@require 'helpers'
+
+local-size = 20
+
+#fixed-header
+  font 200 .9em/1.0 font-sans
+  padding .55em 0
+  background-color #685ba3
+  color #fff
+  width 100%
+  position fixed
+  top 0
+  left 0
+  z-index 1000
+  -webkit-box-shadow: 0px 2px 4px #000000;
+  -moz-box-shadow: 0px 2px 4px #000000;
+  box-shadow: 0px 2px 4px #000000;
+  a
+    display inline-block
+    width (99/4)%
+    margin 0 auto
+    font-size (local-size)px
+    text-decoration none
+    cursor pointer
+    &:hover
+      text-decoration none
+      color #333
+
+  .circle
+    text-decoration none
+    margin 0 auto
+    width (local-size*1.7)px
+    height (local-size*1.7)px
+    border-radius(50%)
+    padding-top .35em
+    background-color #ffffff
+    text-align center
+
+  .pdf:before
+    content 'pdf'
+    font-size 14px
+    display inline-block
+    font-family 'jaba-icons'
+    font-style normal
+    font-weight normal
+    -webkit-font-smoothing antialiased
+    -moz-osx-font-smoothing grayscal
+    margin-top -13px
+    vertical-align middle
+
+  .circle .pdf
+    line-height 27px
