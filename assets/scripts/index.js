@@ -34,9 +34,9 @@ module.exports = {
       ],
     };
 
-    var size = {width:500,height:500},
+    var size = {width:525,height:525},
         position = {x:size.width/2,y:size.height/2},
-        radius = {inner:175, outer: 210},
+        radius = {inner:195, outer: 235},
         servicesMax = $('#places').offset().top - 25 - $('#services').height(),
         $services = $('#services');
 
@@ -84,8 +84,8 @@ module.exports = {
 
       var serviceSelectors = (selectors.data || []).join(',') ;
       if(serviceSelectors.length){
-        $( '#services li' + serviceSelectors ).removeClass('fadeback');
-        $( '#services li:not(' + serviceSelectors + ')').addClass('fadeback');
+        $( '#services li' + serviceSelectors ).addClass('bright').removeClass('fadeback');
+        $( '#services li:not(' + serviceSelectors + ')').addClass('fadeback').removeClass('bright');
       }
     }
     function unFade(){
@@ -107,7 +107,7 @@ module.exports = {
     $('#community').on('mouseout', unFade);
 
 
-    $('.need,.contribution').on('click', function() {
+    $('.contribution').on('click', function() {
       $('.selected').not(this).removeClass('selected');
 
       if($(this).hasClass('selected')) {
