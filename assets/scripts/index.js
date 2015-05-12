@@ -46,7 +46,7 @@ module.exports = {
 
     window.onscroll = function(){
       // console.log(window.scrollY , servicesMax,  $services.offset().top);
-      y = $(window).scrollTop() +225;
+      var y = $(window).scrollTop() +225;
       if( y >= servicesMax ) {
         $services.absolute = true;
         $services.el.style.position = 'absolute';
