@@ -36,7 +36,7 @@ module.exports = {
 
     var size = {width:525,height:525},
         position = {x:size.width/2,y:size.height/2},
-        radius = {inner:195, outer: 235},
+        radius = {inner:155, outer: 235},
         servicesMax = $('#places').offset().top - 25 - $('#services').height(),
         $services = $('#services');
 
@@ -46,12 +46,12 @@ module.exports = {
 
     window.onscroll = function(){
       // console.log(window.scrollY , servicesMax,  $services.offset().top);
-      if($services.offset().top >= servicesMax ) {
+      if(window.scrollY >= servicesMax ) {
         $services.absolute = true;
         $services.el.style.position = 'absolute';
         $services.el.style.top = servicesMax + 'px';
       }
-      else if(window.scrollY < servicesMax ){
+      else if(window.scrollY < servicesMax && $services.absolute){
         $services.absolute = false;
         $services.el.style.position = 'fixed';
         $services.el.style.top = '250px';
@@ -78,6 +78,8 @@ module.exports = {
       window.onscroll(); //reset services block
       $( '.connector' ).remove();
       connect();
+      servicesMax = $('#places').offset().top - 25 - $('#services').height();
+
     }, 500));
 
     function highlightServices(selectors){
