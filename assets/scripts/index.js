@@ -36,7 +36,7 @@ module.exports = {
 
     var size = {width:525,height:525},
         position = {x:size.width/2,y:size.height/2},
-        radius = {inner:155, outer: 235},
+        radius = {inner:195, outer: 235},
         servicesMax = $('#places').offset().top - 25 - $('#services').height(),
         $services = $('#services');
 
